@@ -11,7 +11,8 @@ namespace Web.Models
         [Key]
         public int Id { get; set; }
         [Required]
-        public int IdCliente { get; set; }
+        [Display(Name = "Cliente")]
+        public string IdCliente { get; set; }
 
         [Required]
         [Display(Name = "Nombre")]

@@ -15,12 +15,14 @@ namespace Web.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Contactos
+        [Authorize(Roles = "Administrador,Usuario")]
         public ActionResult Index()
         {
             return View(db.Contactos.ToList());
         }
 
         // GET: Contactos/Details/5
+        [Authorize(Roles = "Administrador,Usuario")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -28,6 +30,9 @@ namespace Web.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Contactos contactos = db.Contactos.Find(id);
+            int val = Int32.Parse(contactos.IdCliente);
+            Cliente clientes = db.Clientes.Find(val);
+            ViewBag.Detalles = clientes.Nombre;
             if (contactos == null)
             {
                 return HttpNotFound();
@@ -36,6 +41,7 @@ namespace Web.Controllers
         }
 
         // GET: Contactos/Create
+        [Authorize(Roles = "Administrador,Usuario")]
         public ActionResult Create()
         {
             var clientes = db.Clientes.ToList();
@@ -50,6 +56,7 @@ namespace Web.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador,Usuario")]
         public ActionResult Create(Contactos contactos)
         {
             if (ModelState.IsValid)
@@ -63,13 +70,18 @@ namespace Web.Controllers
         }
 
         // GET: Contactos/Edit/5
+        [Authorize(Roles = "Administrador,Usuario")]
         public ActionResult Edit(int? id)
         {
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Contactos contactos = db.Contactos.Find(id);
+            int val= Int32.Parse(contactos.IdCliente);
+            Cliente clientes = db.Clientes.Find(val);
+            ViewBag.Nombre = clientes.Nombre;
             if (contactos == null)
             {
                 return HttpNotFound();
@@ -82,6 +94,7 @@ namespace Web.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador,Usuario")]
         public ActionResult Edit([Bind(Include = "Id,IdCliente,Nombre,Apellido,PhoneNumber,Email,Puesto")] Contactos contactos)
         {
             if (ModelState.IsValid)
@@ -94,6 +107,7 @@ namespace Web.Controllers
         }
 
         // GET: Contactos/Delete/5
+        [Authorize(Roles = "Administrador,Usuario")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -101,6 +115,9 @@ namespace Web.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Contactos contactos = db.Contactos.Find(id);
+            int val = Int32.Parse(contactos.IdCliente);
+            Cliente clientes = db.Clientes.Find(val);
+            ViewBag.Eliminar = clientes.Nombre;
             if (contactos == null)
             {
                 return HttpNotFound();
@@ -111,6 +128,7 @@ namespace Web.Controllers
         // POST: Contactos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador,Usuario")]
         public ActionResult DeleteConfirmed(int id)
         {
             Contactos contactos = db.Contactos.Find(id);

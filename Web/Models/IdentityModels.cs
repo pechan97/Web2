@@ -36,5 +36,9 @@ namespace Web.Models
         public System.Data.Entity.DbSet<Web.Models.Cliente> Clientes { get; set; }
 
         public System.Data.Entity.DbSet<Web.Models.Contactos> Contactos { get; set; }
+
+        public System.Data.Entity.DbSet<Web.Models.Reuniones> Reuniones { get; set; }
+
+        public System.Data.Entity.DbSet<Web.Models.SupportTickets> SupportTickets { get; set; }
     }
 }

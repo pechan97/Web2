@@ -10,13 +10,7 @@
     <h4>Contactos</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.IdCliente)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.IdCliente)
-        </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.Nombre)
@@ -25,7 +19,13 @@
         <dd>
             @Html.DisplayFor(model => model.Nombre)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IdCliente)
+        </dt>
 
+        <dd>
+            <p>@ViewBag.Detalles</p>
+        </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Apellido)
         </dt>

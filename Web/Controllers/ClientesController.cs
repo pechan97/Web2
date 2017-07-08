@@ -15,12 +15,14 @@ namespace Web.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Clientes
+        [Authorize(Roles = "Administrador,Usuario")]
         public ActionResult Index()
         {
             return View(db.Clientes.ToList());
         }
 
         // GET: Clientes/Details/5
+        [Authorize(Roles = "Administrador,Usuario")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -35,8 +37,9 @@ namespace Web.Controllers
             return View(cliente);
         }
 
-        [Authorize(Roles = "Administrador,Usuario")]
+
         // GET: Clientes/Create
+        [Authorize(Roles = "Administrador,Usuario")]
         public ActionResult Create()
         {
             ViewBag.MiListado = ObtenerListado();
@@ -48,6 +51,7 @@ namespace Web.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador,Usuario")]
         public ActionResult Create([Bind(Include = "Id,Nombre,CedulaJuridica,PaginaWeb,Direccion,Telefono,Sector")] Cliente cliente)
         {
             if (ModelState.IsValid)
@@ -61,6 +65,7 @@ namespace Web.Controllers
         }
 
         // GET: Clientes/Edit/5
+        [Authorize(Roles = "Administrador,Usuario")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -80,6 +85,7 @@ namespace Web.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador,Usuario")]
         public ActionResult Edit([Bind(Include = "Id,Nombre,CedulaJuridica,PaginaWeb,Direccion,Telefono,Sector")] Cliente cliente)
         {
             if (ModelState.IsValid)
@@ -92,6 +98,7 @@ namespace Web.Controllers
         }
 
         // GET: Clientes/Delete/5
+        [Authorize(Roles = "Administrador,Usuario")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -109,6 +116,7 @@ namespace Web.Controllers
         // POST: Clientes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador,Usuario")]
         public ActionResult DeleteConfirmed(int id)
         {
             Cliente cliente = db.Clientes.Find(id);

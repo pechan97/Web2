@@ -154,7 +154,7 @@ namespace Web.Controllers
         //
         // POST: /Account/Register
         [HttpPost]
-        [AllowAnonymous]
+        [Authorize(Roles = "Administrador")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
@@ -171,10 +171,9 @@ namespace Web.Controllers
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirmar cuenta", "Para confirmar la cuenta, haga clic <a href=\"" + callbackUrl + "\">aquí</a>");
-
-                    return RedirectToAction("Index", "Home");
                     var id = user.Id;
                     AddRole(id);
+                    return RedirectToAction("Index", "Home");              
                 }
                 AddErrors(result);
             }
@@ -511,6 +510,7 @@ namespace Web.Controllers
 
         }
         // GET: Account/Details/5
+        [Authorize(Roles = "Administrador")]
         public ActionResult Details(string id)
         {
             if (id == null)
@@ -526,6 +526,7 @@ namespace Web.Controllers
         }
 
         // GET: Account/Delete/5
+        [Authorize(Roles = "Administrador")]
         public ActionResult Delete(string id)
         {
             if (id == null)
@@ -543,6 +544,7 @@ namespace Web.Controllers
         // POST: Account/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador")]
         public ActionResult DeleteConfirmed(string id)
         {
             if (id == "e7f21019-cd8b-4c42-9f50-72b5fe5aea50")
@@ -558,6 +560,7 @@ namespace Web.Controllers
             return RedirectToAction("Edit", "Account");
         }
         // GET: Account/EditUser/5
+        [Authorize(Roles = "Administrador")]
         public ActionResult EditUser(string id)
         {
             if (id == null)
@@ -577,6 +580,7 @@ namespace Web.Controllers
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrador")]
         public ActionResult EditUser([Bind(Exclude = null)] EditUserViewModel model)
         {
 
