@@ -86,6 +86,8 @@ namespace Web.Controllers
             int val = Int32.Parse(reuniones.IdCliente);
             Cliente clientes = db.Clientes.Find(val);
             ViewBag.Nombre = clientes.Nombre;
+            ViewBag.ListaClientes = GetClientes();
+            ViewBag.ListaUsuarios = GetListUser();
             if (reuniones == null)
             {
                 return HttpNotFound();
@@ -151,6 +153,16 @@ namespace Web.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        public List<Cliente> GetClientes()
+        {
+            var res = db.Clientes.ToList<Cliente>();
+            return res;
+        }
+        public List<ApplicationUser> GetListUser()
+        {
+            var res = db.Users.ToList<ApplicationUser>();
+            return res;
         }
     }
 }

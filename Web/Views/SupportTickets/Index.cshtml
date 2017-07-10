@@ -7,23 +7,23 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Crear Nuevo Soporte", "Create")
 </p>
-<table class="table">
+<table class="table table-hover table-bordered">
     <tr>
-        <th>
+        <th class="active">
             @Html.DisplayNameFor(model => model.Usuario)
         </th>
-        <th>
+        <th class="active">
             @Html.DisplayNameFor(model => model.Titulo)
         </th>
-        <th>
+        <th class="active">
             @Html.DisplayNameFor(model => model.Detalle)
         </th>
-        <th>
+        <th class="active">
             @Html.DisplayNameFor(model => model.Estado)
         </th>
-        <th></th>
+        <th class="active"></th>
     </tr>
 
 @foreach (var item in Model) {

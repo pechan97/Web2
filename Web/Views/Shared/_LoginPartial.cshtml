@@ -13,11 +13,11 @@
                     @Html.ActionLink(User.Identity.Name, "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
                 </li>
                 <li>@Html.ActionLink("Registrar", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-                <li>@Html.ActionLink("Clientes", "Create", "Clientes", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+                <li>@Html.ActionLink("Clientes", "Index", "Clientes", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
                 <li>@Html.ActionLink("Editar Usuarios", "Edit", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-                <li>@Html.ActionLink("Contactos", "Create", "Contactos", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-                <li>@Html.ActionLink("Reuniones", "Create", "Reuniones", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-                <li>@Html.ActionLink("Soporte", "Create", "SupportTickets", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+                <li>@Html.ActionLink("Contactos", "Index", "Contactos", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+                <li>@Html.ActionLink("Reuniones", "Index", "Reuniones", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+                <li>@Html.ActionLink("Soporte", "Index", "SupportTickets", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
                 <li><a href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a></li>
             </ul>
 
@@ -33,10 +33,10 @@
                 <li>
                     @Html.ActionLink(User.Identity.GetUserName(), "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
                 </li>
-                <li>@Html.ActionLink("Clientes", "Create", "Clientes", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-                <li>@Html.ActionLink("Contactos", "Create", "Contactos", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-                <li>@Html.ActionLink("Reuniones", "Create", "Reuniones", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-                <li>@Html.ActionLink("Soporte", "Create", "SupportTickets", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+                <li>@Html.ActionLink("Clientes", "Index", "Clientes", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+                <li>@Html.ActionLink("Contactos", "Index", "Contactos", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+                <li>@Html.ActionLink("Reuniones", "Index", "Reuniones", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+                <li>@Html.ActionLink("Soporte", "Index", "SupportTickets", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
                 <li><a href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a></li>
             </ul>
 

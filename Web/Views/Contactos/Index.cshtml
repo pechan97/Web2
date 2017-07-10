@@ -7,26 +7,26 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Crear Nuevo Contacto", "Create")
 </p>
-<table class="table">
+<table class="table table-hover table-bordered">
     <tr>
-        <th>
+        <th class="active">
             @Html.DisplayNameFor(model => model.Nombre)
         </th>
-        <th>
+        <th class="active">
             @Html.DisplayNameFor(model => model.Apellido)
         </th>
-        <th>
+        <th class="active">
             @Html.DisplayNameFor(model => model.PhoneNumber)
         </th>
-        <th>
+        <th class="active">
             @Html.DisplayNameFor(model => model.Email)
         </th>
-        <th>
+        <th class="active">
             @Html.DisplayNameFor(model => model.Puesto)
         </th>
-        <th></th>
+        <th class="active"></th>
     </tr>
 
 @foreach (var item in Model) {

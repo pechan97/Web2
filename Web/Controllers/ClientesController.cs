@@ -73,6 +73,7 @@ namespace Web.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Cliente cliente = db.Clientes.Find(id);
+            ViewBag.MiListado = ObtenerListado();
             if (cliente == null)
             {
                 return HttpNotFound();

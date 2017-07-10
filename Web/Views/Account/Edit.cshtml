@@ -2,22 +2,22 @@
 @{
     ViewBag.Title = "Edit";
 }
-<table class="table">
-    <tr>
-        <th>
+<table class="table table-hover table-bordered">
+    <tr class="info">
+        <th class="active">
             @Html.DisplayNameFor(model => model.Name)
         </th>
-        <th>
+        <th class="active">
             @Html.DisplayNameFor(model => model.PhoneNumber)
         </th>
-        <th>
+        <th class="active">
             @Html.DisplayNameFor(model => model.Email)
         </th>
-        <th></th>
+        <th class="active"></th>
     </tr>
     @foreach (var item in Model)
     {
-        <tr>
+        <tr class="info">
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>

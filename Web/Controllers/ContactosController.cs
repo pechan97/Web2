@@ -86,6 +86,7 @@ namespace Web.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.viewModel = GetClientes();
             return View(contactos);
         }
 
@@ -144,6 +145,11 @@ namespace Web.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        public List<Cliente> GetClientes()
+        {
+            var res = db.Clientes.ToList<Cliente>();
+            return res;
         }
     }
 }

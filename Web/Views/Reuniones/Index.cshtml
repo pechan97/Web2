@@ -7,20 +7,20 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Crear Nueva Reunión", "Create")
 </p>
-<table class="table">
+<table class="table table-hover table-bordered">
     <tr>
-        <th>
+        <th class="active">
             @Html.DisplayNameFor(model => model.Nombre)
         </th>
-        <th>
+        <th class="active">
             @Html.DisplayNameFor(model => model.Fecha)
         </th>
-        <th>
+        <th class="active">
             @Html.DisplayNameFor(model => model.Virtual)
         </th>
-        <th></th>
+        <th class="active"></th>
     </tr>
 
 @foreach (var item in Model) {

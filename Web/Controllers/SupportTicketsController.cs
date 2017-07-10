@@ -86,6 +86,8 @@ namespace Web.Controllers
             int val = Int32.Parse(supportTickets.IdCliente);
             Cliente clientes = db.Clientes.Find(val);
             ViewBag.Edit = clientes.Nombre;
+            ViewBag.ListaClientes = GetClientes();
+            ViewBag.MiListado = ObtenerListado();
             if (supportTickets == null)
             {
                 return HttpNotFound();
@@ -170,6 +172,11 @@ namespace Web.Controllers
                 },
 
             };
+        }
+        public List<Cliente> GetClientes()
+        {
+            var res = db.Clientes.ToList<Cliente>();
+            return res;
         }
     }
 }
